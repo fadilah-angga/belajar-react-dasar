@@ -1,13 +1,12 @@
-export default function({text, isCompleted}) {
-    if (isCompleted) {
-        return (
-            <li>
-                <del>{text}</del>
-            </li>
-        )
+export default function({text, isCompleted, isDeleted = false}) {
+    if (isDeleted) {
+        return null
     } else {
         return (
-            <li>{text}</li>
+            <li>
+                {text} {isCompleted && '✅'}
+                {/* {isCompleted ? <del>{text}</del> : text} */}
+            </li>
         )
-    }
+    } 
 }
